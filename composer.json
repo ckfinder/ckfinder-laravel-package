@@ -6,7 +6,14 @@
     "require": {
         "php": ">=5.6.0",
         "illuminate/support": "5.x",
-        "illuminate/console": "^5.6"
+        "illuminate/console": "^5.6",
+        "pimple/pimple": "~3.0",
+        "monolog/monolog": "~1.4,>=1.4.1",
+        "league/flysystem": "1.0.45",
+        "league/flysystem-aws-s3-v3": "1.0.13",
+        "league/flysystem-cached-adapter": "1.0.6",
+        "league/flysystem-azure": "dev-master#f7eb35572b53fa1a07723f5c6b4564a8cd84fcf8",
+        "spatie/flysystem-dropbox": "^1.0"
     },
     "autoload": {
         "psr-4": {
