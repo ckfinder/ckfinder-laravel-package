@@ -14,14 +14,30 @@ class CKFinderController extends Controller
 {
     /**
      * Action that handles all CKFinder requests.
+     *
+     * @param ContainerInterface $container
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function requestAction(ContainerInterface $container, Request $request)
     {
         /** @var CKFinder $connector */
         $connector = $container->get('ckfinder.connector');
 
-        $response = $connector->handle($request);
+        return $connector->handle($request);
+    }
 
-        return $response;
+    /**
+     * Action for CKFinder usage examples.
+     *
+     * To browse examples, please uncomment ckfinder_examples route in
+     * vendor/ckfinder/ckfinder-laravel-package/src/routes.php
+     *
+     * @param string|null $example
+     */
+    public function examplesAction($example = null)
+    {
+        var_dump($example);exit;
     }
 }
