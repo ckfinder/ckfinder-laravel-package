@@ -3,7 +3,7 @@
 @section('content')
     <h1>Modal Mode</h1>
 
-    <p>The modal mode is similar to <a href="popups.html">popup</a>. The difference is that popups are opened using a separate browser window while in modal mode CKFinder is opened inside a modal container that is appended to current page document.</p>
+    <p>The modal mode is similar to <a href="{{ route('ckfinder_examples', ['example' => 'popups']) }}">popup</a>. The difference is that popups are opened using a separate browser window while in modal mode CKFinder is opened inside a modal container that is appended to current page document.</p>
 
     <div class="modal-example">
         <button id="ckfinder-modal" class="button-a button-a-background" style="float: left">Open Modal</button>

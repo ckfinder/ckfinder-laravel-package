@@ -7,7 +7,7 @@
 	<pre class="prettyprint"><code>CKFinder.start();</code></pre>
 	<p>Click the button below to open CKFinder in full page mode.</p>
 
-	<a href="full-page-open" class="button-a button-a-background" target="_blank">Open CKFinder</a>
+	<a href="{{ route('ckfinder_examples', ['example' => 'full-page-open']) }}" class="button-a button-a-background" target="_blank">Open CKFinder</a>
 @stop
 
 @section('scripts')

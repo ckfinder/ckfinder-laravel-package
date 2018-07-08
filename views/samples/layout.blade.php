@@ -16,7 +16,7 @@ For licensing, see LICENSE.html or https://ckeditor.com/sales/license/ckfinder
 <header class="header-a">
     <div class="grid-container">
         <h1 class="header-a-logo grid-width-30">
-            <a href="index.html"><img src="{{ asset('js/ckfinder/samples/img/logo.png') }}" alt="CKFinder Logo"></a>
+            <a href="{{ route('ckfinder_examples') }}"><img src="{{ asset('js/ckfinder/samples/img/logo.png') }}" alt="CKFinder Logo"></a>
         </h1>
         <nav class="navigation-b grid-width-70">
             <ul>
@@ -30,31 +30,31 @@ For licensing, see LICENSE.html or https://ckeditor.com/sales/license/ckfinder
         <h1>CKFinder Samples</h1>
         <h2 @if($section === 'integration')class="tree-a-active"@endif>Website Integration</h2>
         <ul>
-            <li @if($sample === 'widget')class="tree-a-active"@endif><a href="widget">Widget</a></li>
-            <li @if($sample === 'popups')class="tree-a-active"@endif><a href="popups">Popup</a></li>
-            <li @if($sample === 'modals')class="tree-a-active"@endif><a href="modals">Modal</a></li>
-            <li @if($sample === 'full-page')class="tree-a-active"@endif><a href="full-page">Full Page</a></li>
+            <li @if($sample === 'widget')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'widget']) }}">Widget</a></li>
+            <li @if($sample === 'popups')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'popups']) }}">Popup</a></li>
+            <li @if($sample === 'modals')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'modals']) }}">Modal</a></li>
+            <li @if($sample === 'full-page')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'full-page']) }}">Full Page</a></li>
         </ul>
-        <h2 class="tree-a-no-sub @if($section === 'ckeditor') tree-a-active @endif"><a href="ckeditor">CKEditor Integration</a></h2>
+        <h2 class="tree-a-no-sub @if($section === 'ckeditor') tree-a-active @endif"><a href="{{ route('ckfinder_examples', ['example' => 'ckeditor']) }}">CKEditor Integration</a></h2>
         <h2 @if($section === 'skins')class="tree-a-active"@endif>Skins</h2>
         <ul>
-            <li @if($sample === 'skins-moono')class="tree-a-active"@endif><a href="skins-moono">Moono</a></li>
-            <li @if($sample === 'skins-jquery-mobile')class="tree-a-active"@endif><a href="skins-jquery-mobile">jQuery Mobile</a></li>
+            <li @if($sample === 'skins-moono')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'skins-moono']) }}">Moono</a></li>
+            <li @if($sample === 'skins-jquery-mobile')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'skins-jquery-mobile']) }}">jQuery Mobile</a></li>
         </ul>
         <h2 @if($section === 'user-interface')class="tree-a-active"@endif>User Interface</h2>
         <ul>
-            <li @if($sample === 'user-interface-default')class="tree-a-active"@endif><a href="user-interface-default">Default</a></li>
-            <li @if($sample === 'user-interface-compact')class="tree-a-active"@endif><a href="user-interface-compact">Compact</a></li>
-            <li @if($sample === 'user-interface-mobile')class="tree-a-active"@endif><a href="user-interface-mobile">Mobile</a></li>
-            <li @if($sample === 'user-interface-listview')class="tree-a-active"@endif><a href="user-interface-listview">List View</a></li>
+            <li @if($sample === 'user-interface-default')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'user-interface-default']) }}">Default</a></li>
+            <li @if($sample === 'user-interface-compact')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'user-interface-compact']) }}">Compact</a></li>
+            <li @if($sample === 'user-interface-mobile')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'user-interface-mobile']) }}">Mobile</a></li>
+            <li @if($sample === 'user-interface-listview')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'user-interface-listview']) }}">List View</a></li>
         </ul>
-        <h2 class="tree-a-no-sub @if($section === 'localization') tree-a-active @endif"><a href="localization">Localization</a></h2>
+        <h2 class="tree-a-no-sub @if($section === 'localization') tree-a-active @endif"><a href="{{ route('ckfinder_examples', ['example' => 'localization']) }}">Localization</a></h2>
         <h2 @if($section === 'other')class="tree-a-active"@endif>Other</h2>
         <ul>
-            <li @if($sample === 'other-read-only')class="tree-a-active"@endif><a href="other-read-only">Read-only Mode</a></li>
-            <li @if($sample === 'other-custom-configuration')class="tree-a-active"@endif><a href="other-custom-configuration">Custom Configuration</a></li>
+            <li @if($sample === 'other-read-only')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'other-read-only']) }}">Read-only Mode</a></li>
+            <li @if($sample === 'other-custom-configuration')class="tree-a-active"@endif><a href="{{ route('ckfinder_examples', ['example' => 'other-custom-configuration']) }}">Custom Configuration</a></li>
         </ul>
-        <h2 class="tree-a-no-sub @if($section === 'plugin-examples') tree-a-active @endif"><a href="plugin-examples">Plugin Examples</a></h2>
+        <h2 class="tree-a-no-sub @if($section === 'plugin-examples') tree-a-active @endif"><a href="{{ route('ckfinder_examples', ['example' => 'plugin-examples']) }}">Plugin Examples</a></h2>
     </nav>
     <section class="content grid-width-70">
         @yield('content')
