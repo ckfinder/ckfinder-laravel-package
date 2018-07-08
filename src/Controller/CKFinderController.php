@@ -6,6 +6,7 @@ use CKSource\CKFinder\CKFinder;
 use \Illuminate\Routing\Controller;
 use Psr\Container\ContainerInterface;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Controller for handling requests to CKFinder connector.
@@ -25,7 +26,10 @@ class CKFinderController extends Controller
         /** @var CKFinder $connector */
         $connector = $container->get('ckfinder.connector');
 
-        return $connector->handle($request);
+        // If debug mode is enabled then do not catch exceptions and pass them directly to Laravel.
+        $enableDebugMode = config('ckfinder.debug');
+
+        return $connector->handle($request, HttpKernelInterface::MASTER_REQUEST, !$enableDebugMode);
     }
 
     /**
