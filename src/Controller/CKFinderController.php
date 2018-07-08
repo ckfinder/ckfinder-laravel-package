@@ -33,6 +33,16 @@ class CKFinderController extends Controller
     }
 
     /**
+     * Action that displays CKFinder browser.
+     *
+     * @return string
+     */
+    public function browserAction(ContainerInterface $container, Request $request)
+    {
+        return view('ckfinder::browser');
+    }
+
+    /**
      * Action for CKFinder usage examples.
      *
      * To browse examples, please uncomment ckfinder_examples route in
@@ -42,6 +52,43 @@ class CKFinderController extends Controller
      */
     public function examplesAction($example = null)
     {
-        var_dump($example);exit;
+        $example = strtolower($example);
+
+        $knownExamples = [
+            'widget' => 'integration',
+            'popups' => 'integration',
+            'modals' => 'integration',
+            'full-page' => 'integration',
+            'full-page-open' => 'integration',
+
+            'ckeditor' => 'ckeditor',
+
+            'skins-moono' => 'skins',
+            'skins-jquery-mobile' => 'skins',
+
+            'user-interface-default' => 'user-interface',
+            'user-interface-compact' => 'user-interface',
+            'user-interface-mobile' => 'user-interface',
+            'user-interface-listview' => 'user-interface',
+
+            'localization' => 'localization',
+
+            'other-read-only' => 'other',
+            'other-custom-configuration' => 'other',
+
+            'plugin-examples' => 'plugin-examples',
+        ];
+
+        $section = null;
+        $sample = null;
+
+        if (array_key_exists($example, $knownExamples)) {
+            $sample = $example;
+            $section = $knownExamples[$sample];
+
+            return view('ckfinder::samples/'.$example, ['section' => $section, 'sample' => $sample]);
+        }
+
+        return view('ckfinder::samples/index', ['section' => $section, 'sample' => $sample]);
     }
 }
