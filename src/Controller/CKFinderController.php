@@ -55,40 +55,26 @@ class CKFinderController extends Controller
         $example = strtolower($example);
 
         $knownExamples = [
-            'widget' => 'integration',
-            'popups' => 'integration',
-            'modals' => 'integration',
-            'full-page' => 'integration',
-            'full-page-open' => 'integration',
-
-            'ckeditor' => 'ckeditor',
-
-            'skins-moono' => 'skins',
-            'skins-jquery-mobile' => 'skins',
-
-            'user-interface-default' => 'user-interface',
-            'user-interface-compact' => 'user-interface',
-            'user-interface-mobile' => 'user-interface',
-            'user-interface-listview' => 'user-interface',
-
-            'localization' => 'localization',
-
-            'other-read-only' => 'other',
-            'other-custom-configuration' => 'other',
-
-            'plugin-examples' => 'plugin-examples',
+            'integration'     => ['widget', 'popups', 'modals', 'full-page', 'full-page-open'],
+            'ckeditor'        => ['ckeditor'],
+            'skins'           => ['skins-moono', 'skins-jquery-mobile'],
+            'user-interface'  => ['user-interface-default', 'user-interface-compact', 'user-interface-mobile', 'user-interface-listview'],
+            'localization'    => ['localization'],
+            'other'           => ['other-read-only', 'other-custom-configuration'],
+            'plugin-examples' => ['plugin-examples'],
         ];
 
-        $section = null;
-        $sample = null;
+        $navInfo = ['section' => null, 'sample' => null];
 
-        if (array_key_exists($example, $knownExamples)) {
-            $sample = $example;
-            $section = $knownExamples[$sample];
+        foreach ($knownExamples as $section => $examples) {
+            if (in_array($example, $examples)) {
+                $navInfo['section'] = $section;
+                $navInfo['sample'] = $example;
 
-            return view('ckfinder::samples/'.$example, ['section' => $section, 'sample' => $sample]);
+                return view('ckfinder::samples/'.$example, $navInfo);
+            }
         }
 
-        return view('ckfinder::samples/index', ['section' => $section, 'sample' => $sample]);
+        return view('ckfinder::samples/index', $navInfo);
     }
 }

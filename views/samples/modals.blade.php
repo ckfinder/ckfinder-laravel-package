@@ -7,7 +7,11 @@
 
     <div class="modal-example">
         <button id="ckfinder-modal" class="button-a button-a-background" style="float: left">Open Modal</button>
-        <div id="output" style="float: left;font-size: 0.8em;line-height: 1.4em;margin: 3px 7px;"></div>
+        <div id="output" style="float: left;font-size: 0.8em;line-height: 1.4em;margin: 3px 7px;">
+			<span id="file-name"></span>
+			<br>
+			<span id="file-url"></span>
+		</div>
     </div>
     <div style="clear: both"></div>
 
@@ -68,13 +72,17 @@ function selectFileWithCKFinder( elementId ) {
 				onInit: function( finder ) {
 					finder.on( 'files:choose', function( evt ) {
 						var file = evt.data.files.first();
-						var output = document.getElementById( 'output' );
-						output.innerHTML = 'Selected: ' + file.get( 'name' ) + '<br>URL: ' + file.getUrl();
+						var outputFileName = document.getElementById( 'file-name' );
+						var outputFileUrl = document.getElementById( 'file-url' );
+						outputFileName.innerText = 'Selected: ' + file.get( 'name' );
+						outputFileUrl.innerText = 'URL: ' + file.getUrl();
 					} );
 
 					finder.on( 'file:choose:resizedImage', function( evt ) {
-						var output = document.getElementById( 'output' );
-						output.innerHTML = 'Selected resized image: ' + evt.data.file.get( 'name' ) + '<br>url: ' + evt.data.resizedUrl;
+						var outputFileName = document.getElementById( 'file-name' );
+						var outputFileUrl = document.getElementById( 'file-url' );
+						outputFileName.innerText = 'Selected resized image: ' + evt.data.file.get( 'name' );
+						outputFileUrl.innerText = 'URL: ' + evt.data.resizedUrl;
 					} );
 				}
 			} );
