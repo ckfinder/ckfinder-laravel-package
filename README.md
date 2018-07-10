@@ -33,7 +33,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.
     php artisan ckfinder:download
     ```
 
-    It will download the code and place it in the `public` directory of the bundle.
+    It will download the required code and place inside appropriate directory of the package (`vendor/ckfinder/ckfinder-laravel-package/`).
 
 4. Publish CKFinder connector configuration and assets.
 
