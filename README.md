@@ -116,6 +116,7 @@ The included template renders the required `script` tags and configures a valid 
 
 ## Useful links
 
- * [CKFinder Usage Examples](https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html)
- * [CKFinder PHP Connector Documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/)
- * [CKFinder Issue Tracker](https://github.com/ckfinder/ckfinder)
+ * [CKFinder 3 Usage Examples](https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html)
+ * [CKFinder 3 PHP Connector Documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/)
+ * [CKFinder 3 Developer Guide](https://docs.ckeditor.com/ckfinder/ckfinder3/)
+ * [CKFinder 3 Issue Tracker](https://github.com/ckfinder/ckfinder)
