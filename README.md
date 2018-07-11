@@ -1,3 +1,5 @@
+<h3 align="center"><img src="https://user-images.githubusercontent.com/803299/42567830-6b6d3ad6-850b-11e8-9151-43021c92d8b7.png"></h3>
+
 <h1>CKFinder 3 Package for Laravel 5</h1>
 
 This repository contains the CKFinder 3 Package for Laravel 5.
