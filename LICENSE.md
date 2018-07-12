@@ -12,8 +12,8 @@ CKFinder is a trademark of CKSource - Frederico Knabben. All other brand
 and product names are trademarks, registered trademarks or service
 marks of their respective holders.
 
-Sources of Intellectual Property required by package.
------------------------------------------------------
+Sources of Intellectual Property required by package
+----------------------------------------------------
 
 The installation instruction requires user to run the following command to download
 CKFinder separately (the file manager itself):
