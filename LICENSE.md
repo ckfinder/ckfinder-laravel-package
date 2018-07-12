@@ -3,7 +3,7 @@ Software License Agreement
 
 Copyright (c) 2018, CKSource - Frederico Knabben. All rights reserved.
 
-CKFinder bundle for Symfony is licensed under the terms of the MIT license (see Appendix A).
+CKFinder package for Laravel is licensed under the terms of the MIT license (see Appendix A).
 
 Trademarks
 ----------
