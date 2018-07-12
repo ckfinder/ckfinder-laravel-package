@@ -29,19 +29,19 @@ class CKFinderServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../views', 'ckfinder');
 
         $this->app->bind('ckfinder.connector', function() {
+            if (!class_exists('\CKSource\CKFinder\CKFinder')) {
+                throw new \Exception(
+                    "Couldn't find CKFinder conector code. ".
+                    "Please run `artisan ckfinder:download` command first."
+                );
+            }
+
             $ckfinderConfig = config('ckfinder');
 
             if (is_null($ckfinderConfig)) {
                 throw new \Exception(
                     "Couldn't load CKFinder configuration file. ".
                     "Please run `artisan vendor:publish --tag=ckfinder` command first."
-                );
-            }
-
-            if (!class_exists('\CKSource\CKFinder\CKFinder')) {
-                throw new \Exception(
-                    "Couldn't find CKFinder conector code. ".
-                    "Please run `artisan ckfinder:download` command first."
                 );
             }
 
