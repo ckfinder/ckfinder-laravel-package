@@ -2,6 +2,7 @@
 
 <h1>CKFinder 3 Package for Laravel 5.5+</h1>
 
+[![Laravel version](https://img.shields.io/badge/Laravel-5.5%2C%205.6-green.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Packagist](https://img.shields.io/packagist/v/ckfinder/ckfinder-symfony3-bundle.svg)](https://packagist.org/packages/ckfinder/ckfinder-symfony3-bundle)
 [![Packagist](https://img.shields.io/packagist/dt/ckfinder/ckfinder-symfony3-bundle.svg)](https://packagist.org/packages/ckfinder/ckfinder-symfony3-bundle)
