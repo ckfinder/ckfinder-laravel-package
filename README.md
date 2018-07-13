@@ -77,7 +77,7 @@ To find out more about possible connector configuration options please refer to 
 
 ## Usage
 
-The bundle code contains a couple of usage examples that you may find useful. To enable them, uncomment the `ckfinder_examples`
+The package code contains a couple of usage examples that you may find useful. To enable them, uncomment the `ckfinder_examples`
 route in `vendor/ckfinder/ckfinder-laravel-package/src/routes.php`:
 
 ```php
