@@ -2,7 +2,7 @@
 
 <h1>CKFinder 3 Package for Laravel 5</h1>
 
-This repository contains the CKFinder 3 Package for Laravel 5.
+This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
 ## Installation
 
@@ -12,20 +12,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.
     composer require ckfinder/ckfinder-laravel-package
     ```
 
-2. Enable the service provider.
-
-    **If you're using Laravel 5.5 or higher you may skip this step.**
-
-    ``` php
-    // config/app.php
-
-    'providers' => [
-        // ...
-        CKSource\CKFinderBridge\CKFinderServiceProvider::class,
-    ],
-    ```
-
-3. Run the command to download the CKFinder code.
+2. Run the command to download the CKFinder code.
 
     After installing the Laravel package you need to download CKFinder code. It is not shipped
     with the package due to different license terms. To install it, run the following `artisan` command:
@@ -36,7 +23,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.
 
     It will download the required code and place inside appropriate directory of the package (`vendor/ckfinder/ckfinder-laravel-package/`).
 
-4. Publish CKFinder connector configuration and assets.
+3. Publish CKFinder connector configuration and assets.
 
     ```bash
     php artisan vendor:publish --tag=ckfinder
@@ -44,7 +31,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.
 
     This will publish CKFinder assets to `public/js/ckfinder`, and CKFinder connector configuration to `config/ckfinder.php`.
 
-5. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects it to be placed in `public/userfiles` (this can be altered in configuration).
+4. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects it to be placed in `public/userfiles` (this can be altered in configuration).
 
     ```bash
     mkdir -m 777 public/userfiles
