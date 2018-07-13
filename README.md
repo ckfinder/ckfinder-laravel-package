@@ -13,7 +13,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
 ## Installation
 
-1. Add Composer dependency and install the bundle.
+1. Add a Composer dependency and install the bundle.
 
     ```bash
     composer require ckfinder/ckfinder-laravel-package
@@ -21,40 +21,38 @@ This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
 2. Run the command to download the CKFinder code.
 
-    After installing the Laravel package you need to download CKFinder code. It is not shipped
-    with the package due to different license terms. To install it, run the following `artisan` command:
+    After installing the Laravel package you need to download CKFinder code. It is not shipped with the package due to different license terms. To install it, run the following `artisan` command:
 
     ```bash
     php artisan ckfinder:download
     ```
 
-    It will download the required code and place inside appropriate directory of the package (`vendor/ckfinder/ckfinder-laravel-package/`).
+    It will download the required code and place it inside an appropriate directory of the package (`vendor/ckfinder/ckfinder-laravel-package/`).
 
-3. Publish CKFinder connector configuration and assets.
+3. Publish the CKFinder connector configuration and assets.
 
     ```bash
     php artisan vendor:publish --tag=ckfinder
     ```
 
-    This will publish CKFinder assets to `public/js/ckfinder`, and CKFinder connector configuration to `config/ckfinder.php`.
+    This will publish CKFinder assets to `public/js/ckfinder`, and the CKFinder connector configuration to `config/ckfinder.php`.
 
-4. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects it to be placed in `public/userfiles` (this can be altered in configuration).
+4. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects the files to be placed in `public/userfiles` (this can be altered in the configuration).
 
     ```bash
     mkdir -m 777 public/userfiles
     ```
 
-**NOTE:** Since usually setting permissions to 0777 is insecure, it is advisable to change the group ownership of the directory to the same user as Apache and add group write permissions instead. Please contact your system administrator in case of any doubts.
+**NOTE:** Since usually setting permissions to `0777` is insecure, it is advisable to change the group ownership of the directory to the same user as Apache and add group write permissions instead. Please contact your system administrator in case of any doubts.
 
 At this point you should see the connector JSON response after navigating to the `<APP BASE URL>/ckfinder/connector?command=Init` address.
 Authentication for CKFinder is not configured yet, so you will see an error response saying that CKFinder is not enabled.
 
 ## Configuring Authentication
 
-CKFinder connector authentication is managed by the `authentication` option in connector configuration file (`config/ckfinder.php`).
-It expects a [PHP callable](http://php.net/manual/pl/language.types.callable.php) value, that after calling should return a Boolean value to decide if the user should have access to CKFinder.
-As you can see the default service implementation is not complete and simply returns `false`.
-
+CKFinder connector authentication is managed by the `authentication` option in the connector configuration file (`config/ckfinder.php`).
+It expects a [PHP callable](http://php.net/manual/pl/language.types.callable.php) value that after calling would return a Boolean value to decide if the user should have access to CKFinder.
+As you can see, the default service implementation is not complete and simply returns `false`.
 
 A basic implementation that returns `true` from the `authenticate` callable (which is obviously **not secure**) can look like below:
 
@@ -66,18 +64,18 @@ $config['authentication'] = function () {
 };
 ```
 
-Please have a look at [PHP Connector Documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
+Please have a look at the [CKFinder for PHP connector documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
 more about this option.
 
 ## Configuration Options
 
 The CKFinder connector configuration is taken from the `config/ckfinder.php` file.
 
-To find out more about possible connector configuration options please refer to [CKFinder PHP Connector Documentation](http://docs.cksource.com/ckfinder3-php/configuration.html).
+To find out more about possible connector configuration options please refer to the [CKFinder for PHP connector documentation](http://docs.cksource.com/ckfinder3-php/configuration.html).
 
 ## Usage
 
-The bundle code contains a couple of usage examples that you may find useful. To enable them uncomment the `ckfinder_examples`
+The bundle code contains a couple of usage examples that you may find useful. To enable them, uncomment the `ckfinder_examples`
 route in `vendor/ckfinder/ckfinder-laravel-package/src/routes.php`:
 
 ```php
@@ -93,7 +91,7 @@ To find out about the code behind them, check the `views/samples` directory in t
 ### Including the Main CKFinder JavaScript File in Templates
 
 To be able to use CKFinder on a web page you have to include the main CKFinder JavaScript file.
-The preferred way to do that is including the CKFinder setup template, like presented below:
+The preferred way to do that is to include the CKFinder setup template, as shown below:
 
 ```blade
 @include('ckfinder::setup')
@@ -108,9 +106,9 @@ The included template renders the required `script` tags and configures a valid 
 
 ---
 
-## Useful links
+## Useful Links
 
- * [CKFinder 3 Usage Examples](https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html)
- * [CKFinder 3 PHP Connector Documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/)
- * [CKFinder 3 Developer Guide](https://docs.ckeditor.com/ckfinder/ckfinder3/)
- * [CKFinder 3 Issue Tracker](https://github.com/ckfinder/ckfinder)
+ * [CKFinder 3 usage examples](https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html)
+ * [CKFinder 3 for PHP connector documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/)
+ * [CKFinder 3 Developer's Guide](https://docs.ckeditor.com/ckfinder/ckfinder3/)
+ * [CKFinder 3 issue tracker](https://github.com/ckfinder/ckfinder)
