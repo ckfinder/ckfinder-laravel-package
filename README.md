@@ -1,6 +1,6 @@
 <h3 align="center"><img src="https://user-images.githubusercontent.com/803299/42567830-6b6d3ad6-850b-11e8-9151-43021c92d8b7.png"></h3>
 
-<h1>CKFinder 3 Package for Laravel 5.5+</h1>
+# CKFinder 3 Package for Laravel 5.5+ [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKFinder%20package%20for%20Laravel%20&url=https://github.com/ckfinder/ckfinder-laravel-package)
 
 [![Laravel version](https://img.shields.io/badge/Laravel-5.5%2C%205.6-green.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
