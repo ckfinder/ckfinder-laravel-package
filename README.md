@@ -11,6 +11,8 @@
 
 This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
+<h3 align="center"><img src="https://user-images.githubusercontent.com/803299/42692854-618fe3c6-86ad-11e8-9af8-13309c3eadfe.png"></h3>
+
 ## Installation
 
 1. Add a Composer dependency and install the bundle.
