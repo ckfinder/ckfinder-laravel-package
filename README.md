@@ -2,6 +2,11 @@
 
 <h1>CKFinder 3 Package for Laravel 5.5+</h1>
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Packagist](https://img.shields.io/packagist/dt/ckfinder/ckfinder-symfony3-bundle.svg)](https://packagist.org/packages/ckfinder/ckfinder-symfony3-bundle)
+[![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
+[![Follow twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
+
 This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
 ## Installation
