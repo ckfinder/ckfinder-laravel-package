@@ -56,7 +56,7 @@ CKFinder connector authentication is managed by the `authentication` option in t
 It expects a [PHP callable](http://php.net/manual/pl/language.types.callable.php) value that after calling would return a Boolean value to decide if the user should have access to CKFinder.
 As you can see, the default service implementation is not complete and simply returns `false`.
 
-A basic implementation that returns `true` from the `authenticate` callable (which is obviously **not secure**) can look like below:
+A basic implementation that returns `true` from the `authentication` callable (which is obviously **not secure**) can look like below:
 
 ```php
 // config/ckfinder.php
