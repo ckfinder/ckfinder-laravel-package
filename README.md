@@ -11,7 +11,7 @@
 
 This repository contains the CKFinder 3 Package for Laravel 5.5+.
 
-<h3 align="center"><a href="https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html"><img src="https://user-images.githubusercontent.com/803299/42693315-18717aae-86af-11e8-863a-74070edb3912.png"></a></h3>
+<h3 align="center"><a href="https://ckeditor.com/docs/ckfinder/demo/ckfinder3/samples/widget.html"><img src="https://user-images.githubusercontent.com/803299/42693315-18717aae-86af-11e8-863a-74070edb3912.png"></a></h3>
 
 ## Installation
 
@@ -66,14 +66,14 @@ $config['authentication'] = function () {
 };
 ```
 
-Please have a look at the [CKFinder for PHP connector documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
+Please have a look at the [CKFinder for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
 more about this option.
 
 ## Configuration Options
 
 The CKFinder connector configuration is taken from the `config/ckfinder.php` file.
 
-To find out more about possible connector configuration options please refer to the [CKFinder for PHP connector documentation](http://docs.cksource.com/ckfinder3-php/configuration.html).
+To find out more about possible connector configuration options please refer to the [CKFinder for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html).
 
 ## Usage
 
@@ -110,7 +110,7 @@ The included template renders the required `script` tags and configures a valid 
 
 ## Useful Links
 
- * [CKFinder 3 usage examples](https://docs.ckeditor.com/ckfinder/demo/ckfinder3/samples/widget.html)
- * [CKFinder 3 for PHP connector documentation](https://docs.ckeditor.com/ckfinder/ckfinder3-php/)
- * [CKFinder 3 Developer's Guide](https://docs.ckeditor.com/ckfinder/ckfinder3/)
+ * [CKFinder 3 usage examples](https://ckeditor.com/docs/ckfinder/demo/ckfinder3/samples/widget.html)
+ * [CKFinder 3 for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/)
+ * [CKFinder 3 Developer's Guide](https://ckeditor.com/docs/ckfinder/ckfinder3/)
  * [CKFinder 3 issue tracker](https://github.com/ckfinder/ckfinder)
