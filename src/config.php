@@ -22,10 +22,6 @@
 
 $config = array();
 
-$config['authentication'] = function () {
-    return false;
-};
-
 /*============================ License Key ============================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
