@@ -20,7 +20,7 @@ class CKFinderController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(\App\Http\Middleware\CustomCKFinderAuth::class);
+        $this->middleware(['ckfinder']);
     }
 
     /**
