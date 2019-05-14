@@ -52,22 +52,45 @@ Authentication for CKFinder is not configured yet, so you will see an error resp
 
 ## Configuring Authentication
 
-CKFinder connector authentication is managed by the `authentication` option in the connector configuration file (`config/ckfinder.php`).
-It expects a [PHP callable](http://php.net/manual/pl/language.types.callable.php) value that after calling would return a Boolean value to decide if the user should have access to CKFinder.
-As you can see, the default service implementation is not complete and simply returns `false`.
+CKFinder connector authentication is handled by [middleware](https://laravel.com/docs/5.8/middleware) alias `ckfinder`. To create the middleware class, use the artisan command:
 
-A basic implementation that returns `true` from the `authentication` callable (which is obviously **not secure**) can look like below:
+```bash
+php artisan make:middleware CustomCKFinderAuth
+```
+
+The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Attach this class to the `ckfinder` alias in `app/Http/Kernel.php`, for example, as `web` group + the custom class: 
 
 ```php
-// config/ckfinder.php
+protected $middlewareGroups = [
+        //...
 
-$config['authentication'] = function () {
-    return true;
-};
+        'ckfinder' => [
+            'web',
+            \App\Http\Middleware\CustomCKFinderAuth::class
+        ],
+    ];
+
+```
+
+The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example by switching the `ckfinder.authentication` config option for authenticated user:
+
+```php
+public function handle($request, Closure $next)
+{
+    config(['ckfinder.authentication' => function() use ($request) {
+        if($request->user()) {
+            return true;
+        }
+        return false;
+    }] );
+    return $next($request);
+}
 ```
 
 Please have a look at the [CKFinder for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
 more about this option.
+
+
 
 ## Configuration Options
 
