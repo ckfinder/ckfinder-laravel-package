@@ -71,17 +71,14 @@ protected $middlewareGroups = [
 ];
 ```
 
-The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example by switching the `ckfinder.authentication` config option for authenticated user:
+The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example by switching the `ckfinder.authentication` config option:
 
 ```php
 public function handle($request, Closure $next)
 {
-    config(['ckfinder.authentication' => function() use ($request) {
-        if($request->user()) {
-            return true;
-        }
-        return false;
-    }] );
+    config(['ckfinder.authentication' => function() {
+        return true;
+    }]);
     return $next($request);
 }
 ```
