@@ -58,18 +58,17 @@ CKFinder connector authentication is handled by [middleware](https://laravel.com
 php artisan make:middleware CustomCKFinderAuth
 ```
 
-The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Attach this class to the `ckfinder` alias in `app/Http/Kernel.php`, for example, as `web` group + the custom class: 
+The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Attach this class to the `ckfinder` alias in `app/Http/Kernel.php`, for example, using `web` group + the custom class: 
 
 ```php
 protected $middlewareGroups = [
-        //...
+    //...
 
-        'ckfinder' => [
-            'web',
-            \App\Http\Middleware\CustomCKFinderAuth::class
-        ],
-    ];
-
+    'ckfinder' => [
+        'web',
+        \App\Http\Middleware\CustomCKFinderAuth::class
+    ],
+];
 ```
 
 The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example by switching the `ckfinder.authentication` config option for authenticated user:
