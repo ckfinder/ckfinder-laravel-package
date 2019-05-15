@@ -15,12 +15,14 @@ class CKFinderController extends Controller
 {
     /**
      * Use custom middleware to handle custom authentication and redirects.
-     *
-     * @middleware App\Http\Middleware\CustomCKFinderAuth
      */
     public function __construct()
     {
-        $this->middleware(['ckfinder']);
+        $authenticationMiddleware = config('ckfinder.authentication');
+
+        if(isset($authenticationMiddleware) && is_string($authenticationMiddleware)) {
+            $this->middleware($authenticationMiddleware);
+        }
     }
 
     /**

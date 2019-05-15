@@ -22,6 +22,8 @@
 
 $config = array();
 
+$config['authentication'] = '\CKSource\CKFinderBridge\CKFinderMiddleware';
+
 /*============================ License Key ============================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
