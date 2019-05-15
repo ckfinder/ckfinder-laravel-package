@@ -20,8 +20,12 @@ class CKFinderController extends Controller
     {
         $authenticationMiddleware = config('ckfinder.authentication');
 
-        if(isset($authenticationMiddleware) && is_string($authenticationMiddleware)) {
-            $this->middleware($authenticationMiddleware);
+        if(!is_callable($authenticationMiddleware)) {
+            if(isset($authenticationMiddleware) && is_string($authenticationMiddleware)) {
+                $this->middleware($authenticationMiddleware);
+            } else {
+                $this->middleware(\CKSource\CKFinderBridge\CKFinderMiddleware::class);
+            }
         }
     }
 
