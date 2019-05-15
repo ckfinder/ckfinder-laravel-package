@@ -64,7 +64,7 @@ The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.
 $config['authentication'] = '\App\Http\Middleware\CustomCKFinderAuth';
 ```
 
-The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example:
+The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users. A basic implementation that returns `true` from the `authentication` callable (which is obviously **not secure**) can look like below:
 
 ```php
 public function handle($request, Closure $next)
