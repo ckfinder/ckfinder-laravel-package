@@ -52,26 +52,19 @@ Authentication for CKFinder is not configured yet, so you will see an error resp
 
 ## Configuring Authentication
 
-CKFinder connector authentication is handled by [middleware](https://laravel.com/docs/5.8/middleware) alias `ckfinder`. To create the middleware class, use the artisan command:
+CKFinder connector authentication is handled by [middleware](https://laravel.com/docs/5.8/middleware) class or alias. To create the custom middleware class, use the artisan command:
 
 ```bash
 php artisan make:middleware CustomCKFinderAuth
 ```
 
-The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Attach this class to the `ckfinder` alias in `app/Http/Kernel.php`, for example, using `web` group + the custom class: 
+The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Change the `authentication` option in `config/ckfinder.php`:
 
 ```php
-protected $middlewareGroups = [
-    //...
-
-    'ckfinder' => [
-        'web',
-        \App\Http\Middleware\CustomCKFinderAuth::class
-    ],
-];
+$config['authentication'] = '\App\Http\Middleware\CustomCKFinderAuth';
 ```
 
-The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example by switching the `ckfinder.authentication` config option:
+The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users, for example:
 
 ```php
 public function handle($request, Closure $next)
