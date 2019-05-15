@@ -52,22 +52,34 @@ Authentication for CKFinder is not configured yet, so you will see an error resp
 
 ## Configuring Authentication
 
-CKFinder connector authentication is managed by the `authentication` option in the connector configuration file (`config/ckfinder.php`).
-It expects a [PHP callable](http://php.net/manual/pl/language.types.callable.php) value that after calling would return a Boolean value to decide if the user should have access to CKFinder.
-As you can see, the default service implementation is not complete and simply returns `false`.
+CKFinder connector authentication is handled by [middleware](https://laravel.com/docs/5.8/middleware) class or alias. To create the custom middleware class, use the artisan command:
 
-A basic implementation that returns `true` from the `authentication` callable (which is obviously **not secure**) can look like below:
+```bash
+php artisan make:middleware CustomCKFinderAuth
+```
+
+The new middleware class will appear in `app/Http/Middleware/CustomCKFinderAuth.php`. Change the `authentication` option in `config/ckfinder.php`:
 
 ```php
-// config/ckfinder.php
+$config['authentication'] = '\App\Http\Middleware\CustomCKFinderAuth';
+```
 
-$config['authentication'] = function () {
-    return true;
-};
+The `handle` method in `CustomCKFinderAuth` class allows to authenticate CKFinder users. A basic implementation that returns `true` from the `authentication` callable (which is obviously **not secure**) can look like below:
+
+```php
+public function handle($request, Closure $next)
+{
+    config(['ckfinder.authentication' => function() {
+        return true;
+    }]);
+    return $next($request);
+}
 ```
 
 Please have a look at the [CKFinder for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
 more about this option.
+
+
 
 ## Configuration Options
 

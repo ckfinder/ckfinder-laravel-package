@@ -14,6 +14,22 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 class CKFinderController extends Controller
 {
     /**
+     * Use custom middleware to handle custom authentication and redirects.
+     */
+    public function __construct()
+    {
+        $authenticationMiddleware = config('ckfinder.authentication');
+
+        if(!is_callable($authenticationMiddleware)) {
+            if(isset($authenticationMiddleware) && is_string($authenticationMiddleware)) {
+                $this->middleware($authenticationMiddleware);
+            } else {
+                $this->middleware(\CKSource\CKFinderBridge\CKFinderMiddleware::class);
+            }
+        }
+    }
+
+    /**
      * Action that handles all CKFinder requests.
      *
      * @param ContainerInterface $container
