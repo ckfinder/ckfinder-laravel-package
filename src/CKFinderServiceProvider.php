@@ -14,6 +14,9 @@ class CKFinderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../views', 'ckfinder');
+
         if ($this->app->runningInConsole()) {
             $this->commands([CKFinderDownloadCommand::class]);
 
@@ -24,9 +27,6 @@ class CKFinderServiceProvider extends ServiceProvider
 
             return;
         }
-
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadViewsFrom(__DIR__.'/../views', 'ckfinder');
 
         $this->app->bind('ckfinder.connector', function() {
             if (!class_exists('\CKSource\CKFinder\CKFinder')) {
