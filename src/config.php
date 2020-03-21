@@ -22,6 +22,8 @@
 
 $config = array();
 
+$config['loadRoutes'] = true;
+
 $config['authentication'] = '\CKSource\CKFinderBridge\CKFinderMiddleware';
 
 /*============================ License Key ============================================*/
