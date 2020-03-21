@@ -80,7 +80,7 @@ Please have a look at the [CKFinder for PHP connector documentation](https://cke
 more about this option.
 
 **Note**: 
-- Alternatively, You can set the configuration option ```$config['loadRoutes'] = false;``` in ```config/ckfinder.php```. Then, copy the routes in ```vendor/ckfinder/ckfinder-laravel-package/src/routes.php``` to your application routes such as ```routes/web.php``` to protect them with your Laravel auth middleware.  You must also prefix the controller namespace with backward slash so that Laravel will not prepend the default ```App\Http\Controllers```.  
+Alternatively, you can set the configuration option ```$config['loadRoutes'] = false;``` in ```config/ckfinder.php```. Then, copy the routes in ```vendor/ckfinder/ckfinder-laravel-package/src/routes.php``` to your application routes such as ```routes/web.php``` to protect them with your Laravel auth middleware.  You must also prefix the controller namespace with backward slash so that Laravel will not prepend the default ```App\Http\Controllers```.  
 
 For example:  
 ```php
