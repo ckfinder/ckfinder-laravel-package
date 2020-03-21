@@ -14,7 +14,9 @@ class CKFinderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        if (config('ckfinder.loadRoutes')) {
+            $this->loadRoutesFrom(__DIR__.'/routes.php');
+        }
         $this->loadViewsFrom(__DIR__.'/../views', 'ckfinder');
 
         if ($this->app->runningInConsole()) {
