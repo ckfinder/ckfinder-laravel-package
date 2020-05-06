@@ -47,8 +47,8 @@ class CKFinderServiceProvider extends ServiceProvider
 
             $ckfinder = new \CKSource\CKFinder\CKFinder($ckfinderConfig);
 
-            if (Kernel::MAJOR_VERSION >= 4) {
-                $this->setupForV4PlusKernel($ckfinder);
+            if (Kernel::MAJOR_VERSION === 4) {
+                $this->setupForV4Kernel($ckfinder);
             }
 
             return $ckfinder;
@@ -60,7 +60,7 @@ class CKFinderServiceProvider extends ServiceProvider
      *
      * @param \CKSource\CKFinder\CKFinder $ckfinder
      */
-    protected function setupForV4PlusKernel($ckfinder)
+    protected function setupForV4Kernel($ckfinder)
     {
         $ckfinder['resolver'] = function () use ($ckfinder) {
             $commandResolver = new \CKSource\CKFinderBridge\Polyfill\CommandResolver($ckfinder);

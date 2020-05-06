@@ -74,7 +74,7 @@ For licensing, see LICENSE.html or https://ckeditor.com/sales/license/ckfinder
 <nav class="navigation-a">
     <div class="grid-container">
         <ul class="navigation-a-left grid-width-70">
-            <li><a href="https://ckeditor.com/ckeditor-4/ckfinder/">Project Homepage</a></li>
+            <li><a href="https://ckeditor.com/ckfinder/">Project Homepage</a></li>
             <li class="global-is-mobile-hidden"><a href="https://github.com/ckfinder/ckfinder/issues">I found a bug in CKFinder</a></li>
             <li class="global-is-mobile-hidden"><a class="icon-pos-right icon-navigation-a-github" href="https://github.com/ckfinder/ckfinder-docs-samples">Sample Plugins on GitHub</a></li>
         </ul>

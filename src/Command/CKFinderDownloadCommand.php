@@ -4,14 +4,28 @@ namespace CKSource\CKFinderBridge\Command;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\HttpKernel\Kernel;
 
 class CKFinderDownloadCommand extends Command
 {
-    const ZIP_PACKAGE_URL = 'http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/3.5.1/ckfinder_php_3.5.1.zip';
+    const LATEST_VERSION = '3.5.1.1';
+    const FALLBACK_VERSION = '3.5.1';
 
     protected $name = 'ckfinder:download';
 
     protected $description = 'Downloads the CKFinder distribution package and extracts assets.';
+
+    /**
+     * Creates URL to CKFinder distribution package.
+     *
+     * @return string
+     */
+    protected function buildPackageUrl()
+    {
+        $packageVersion = Kernel::MAJOR_VERSION >= 5 ? self::LATEST_VERSION : self::FALLBACK_VERSION;
+
+        return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
+    }
 
     /**
      * Handles command execution.
@@ -65,7 +79,7 @@ class CKFinderDownloadCommand extends Command
 
         $this->info('Downlading the CKFinder 3 distribution package.');
 
-        $zipContents = @file_get_contents(self::ZIP_PACKAGE_URL, false, $ctx);
+        $zipContents = @file_get_contents($this->buildPackageUrl(), false, $ctx);
 
         if ($zipContents === false) {
             $this->error('Could not download the distribution package of CKFinder.');
