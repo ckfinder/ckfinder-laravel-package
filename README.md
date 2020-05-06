@@ -128,6 +128,69 @@ public function handle($request, Closure $next)
 Please have a look at the [CKFinder for PHP connector documentation](https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_authentication) to find out
 more about this option.
 
+**Note**: 
+Alternatively, you can set the configuration option ```$config['loadRoutes'] = false;``` in ```config/ckfinder.php```. Then, copy the routes in ```vendor/ckfinder/ckfinder-laravel-package/src/routes.php``` to your application routes such as ```routes/web.php``` to protect them with your Laravel auth middleware.  You must also prefix the controller namespace with backward slash so that Laravel will not prepend the default ```App\Http\Controllers```.  
+
+For example:  
+```php
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
+```
+
+- Disable Laravel CSRF protection for ```/ckfinder/*``` routes, as follows:  
+
+In **app/Http/Middleware/VerifyCsrfToken.php**, add:  
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * Indicates whether the XSRF-TOKEN cookie should be set on the response.
+     *
+     * @var bool
+     */
+    protected $addHttpCookie = true;
+
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array
+     */
+    protected $except = [
+        '/ckfinder/*'
+    ];
+}
+```
+The CkFinder connector has its own CSRF protection mechanism. You will also need to tell Laravel to not encrypt CKfinder's **ckCsrfToken** cookie, as follows:  
+
+In **app/Http/Middleware/EncryptCookies.php**:  
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+
+class EncryptCookies extends Middleware
+{
+    /**
+     * The names of the cookies that should not be encrypted.
+     *
+     * @var array
+     */
+    protected $except = [
+        'ckCsrfToken'
+    ];
+}
+```
 
 
 ## Configuration Options
