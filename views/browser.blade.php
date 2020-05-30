@@ -11,7 +11,7 @@ For licensing, see LICENSE.html or https://ckeditor.com/sales/license/ckfinder
 </head>
 <body>
 
-<?php include __DIR__.'/setup.php' ?>
+@include('ckfinder::setup')
 
 <script>
 	CKFinder.start();
