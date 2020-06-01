@@ -23,9 +23,17 @@ class CKFinderServiceProvider extends ServiceProvider
             $this->commands([CKFinderDownloadCommand::class]);
 
             $this->publishes([
-                __DIR__.'/config.php' => config_path('ckfinder.php'),
+                __DIR__.'/config.php' => config_path('ckfinder.php')
+            ], ['ckfinder', 'ckfinder-config']);
+
+            $this->publishes([
                 __DIR__.'/../public' => public_path('js')
-            ], 'ckfinder');
+            ], ['ckfinder', 'ckfinder-assets']);
+
+            $this->publishes([
+                __DIR__.'/../views/setup.blade.php' => resource_path('views/vendor/ckfinder/setup.blade.php'),
+                __DIR__.'/../views/browser.blade.php' => resource_path('views/vendor/ckfinder/browser.blade.php')
+            ], ['ckfinder', 'ckfinder-views']);
 
             return;
         }

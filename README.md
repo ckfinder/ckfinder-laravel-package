@@ -34,10 +34,22 @@ This repository contains the CKFinder 3 Package for Laravel 5.5+.
 3. Publish the CKFinder connector configuration and assets.
 
     ```bash
-    php artisan vendor:publish --tag=ckfinder
+    php artisan vendor:publish --tag=ckfinder-assets --tag=ckfinder-config
     ```
 
     This will publish CKFinder assets to `public/js/ckfinder`, and the CKFinder connector configuration to `config/ckfinder.php`.
+    
+    You can also publish the views used by this package in case you need custom route names, different assets location, file browser customization etc.
+    
+    ```bash
+    php artisan vendor:publish --tag=ckfinder-views
+    ```
+    
+    Finally, you can publish package's configuration, assets and views using only one command.
+    
+    ```bash
+    php artisan vendor:publish --tag=ckfinder
+    ```
 
 4. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects the files to be placed in `public/userfiles` (this can be altered in the configuration).
 
