@@ -77,7 +77,7 @@ class CKFinderDownloadCommand extends Command
                 }
         ]);
 
-        $this->info('Downlading the CKFinder 3 distribution package.');
+        $this->info('Downloading the CKFinder 3 distribution package.');
 
         $zipContents = @file_get_contents($this->buildPackageUrl(), false, $ctx);
 
