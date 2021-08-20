@@ -84,7 +84,7 @@ This repository contains the CKFinder 3 Package for Laravel 5.5+.
    }
    ```
 
-   You should also disable Laravel's CSRF protection mechanism for CKFinder's path. This can be done by adding `ckfinder/*` pattern to the `$except` property of `VerifyCsrfToken` middleware:
+   You should also disable Laravel's CSRF protection for CKFinder's path, as CKFinder uses its own CSRF protection mechanism. This can be done by adding `ckfinder/*` pattern to the `$except` property of `VerifyCsrfToken` middleware:
    (app/Http/Middleware/VerifyCsrfToken.php)
 
     ```php
