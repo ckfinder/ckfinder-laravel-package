@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class CKFinderDownloadCommand extends Command
 {
-    const LATEST_VERSION = '3.5.2.1';
+    const LATEST_VERSION = '3.5.3';
     const FALLBACK_VERSION = '3.5.1';
 
     protected $name = 'ckfinder:download';
