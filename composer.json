@@ -1,16 +1,15 @@
 {
-    "name": "ckfinder/ckfinder-laravel-package",
+    "name": "lawrence-belo/ckfinder-laravel-package",
     "description": "CKFinder 3 package for Laravel",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": ">=5.6.0",
-        "laravel/framework": "^5.5|^6.20.42|^7.0|^8.0",
+        "laravel/framework": "^9.2",
         "pimple/pimple": "~3.0",
-        "league/flysystem": "^1.1.8",
-        "league/flysystem-aws-s3-v3": "^1.0.13",
-        "league/flysystem-cached-adapter": "^1.0.6",
-        "spatie/flysystem-dropbox": "^1.0"
+        "league/flysystem": "^3.0",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "spatie/flysystem-dropbox": "^2.0.6"
     },
     "autoload": {
         "psr-4": {
