@@ -10,7 +10,7 @@
         "league/flysystem": "^3.0.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "lustmored/flysystem-v2-simple-cache-adapter": "^0.3.0",
-        "spatie/flysystem-dropbox": "^1.0"
+        "spatie/flysystem-dropbox": "^1.0|^2.0"
     },
     "autoload": {
         "psr-4": {
