@@ -1,7 +1,7 @@
 Software License Agreement
 ==========================
 
-Copyright (c) 2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2022, CKSource Holding sp. z o.o. All rights reserved.
 
 CKFinder package for Laravel is licensed under the terms of the MIT license (see Appendix A).
 

@@ -42,8 +42,8 @@ CKFinder.setupCKEditor( editor );</code></pre>
             min-height: 200px;
         }
     </style>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.20.0/standard-all/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
     <script>
 		// Note: in this sample we use CKEditor with two extra plugins:
 		// - uploadimage to support pasting and dragging images,

@@ -9,7 +9,6 @@ use Symfony\Component\HttpKernel\Kernel;
 class CKFinderDownloadCommand extends Command
 {
     const LATEST_VERSION = '3.6.0';
-    const FALLBACK_VERSION = '3.5.1';
 
     protected $name = 'ckfinder:download';
 
@@ -22,9 +21,7 @@ class CKFinderDownloadCommand extends Command
      */
     protected function buildPackageUrl()
     {
-        $packageVersion = Kernel::MAJOR_VERSION >= 5 ? self::LATEST_VERSION : self::FALLBACK_VERSION;
-
-        return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
+        return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/" . self::LATEST_VERSION . "/ckfinder_php_" . self::LATEST_VERSION . ".zip";
     }
 
     /**

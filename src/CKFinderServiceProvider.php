@@ -57,36 +57,7 @@ class CKFinderServiceProvider extends ServiceProvider
 
             $ckfinder = new \CKSource\CKFinder\CKFinder($ckfinderConfig);
 
-            if (Kernel::MAJOR_VERSION === 4) {
-                $this->setupForV4Kernel($ckfinder);
-            }
-
             return $ckfinder;
         });
-    }
-
-    /**
-     * Prepares CKFinder DI container to use version version 4+ of HttpKernel.
-     *
-     * @param \CKSource\CKFinder\CKFinder $ckfinder
-     */
-    protected function setupForV4Kernel($ckfinder)
-    {
-        $ckfinder['resolver'] = function () use ($ckfinder) {
-            $commandResolver = new \CKSource\CKFinderBridge\Polyfill\CommandResolver($ckfinder);
-            $commandResolver->setCommandsNamespace(\CKSource\CKFinder\CKFinder::COMMANDS_NAMESPACE);
-            $commandResolver->setPluginsNamespace(\CKSource\CKFinder\CKFinder::PLUGINS_NAMESPACE);
-
-            return $commandResolver;
-        };
-
-        $ckfinder['kernel'] = function () use ($ckfinder) {
-            return new HttpKernel(
-                $ckfinder['dispatcher'],
-                $ckfinder['resolver'],
-                $ckfinder['request_stack'],
-                $ckfinder['resolver']
-            );
-        };
     }
 }
