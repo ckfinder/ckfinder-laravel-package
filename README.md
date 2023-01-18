@@ -9,7 +9,7 @@
 [![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
 [![Follow twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
 
-This repository contains the CKFinder 3 Package for Laravel 9+. If you are lloking for package for older version of Laravel, please use [version 3](https://github.com/ckfinder/ckfinder-laravel-package/tree/v3.x.x).
+This repository contains the CKFinder 3 Package for Laravel 9+. If you are looking for a package for older version of Laravel, please use [version 3](https://github.com/ckfinder/ckfinder-laravel-package/tree/v3.x.x).
 
 <h3 align="center"><a href="https://ckeditor.com/docs/ckfinder/demo/ckfinder3/samples/widget.html"><img src="https://user-images.githubusercontent.com/803299/42693315-18717aae-86af-11e8-863a-74070edb3912.png"></a></h3>
 
