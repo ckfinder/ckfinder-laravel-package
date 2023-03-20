@@ -1,15 +1,15 @@
 <h3 align="center"><img src="https://user-images.githubusercontent.com/803299/42567830-6b6d3ad6-850b-11e8-9151-43021c92d8b7.png"></h3>
 
-# CKFinder 3 Package for Laravel 9+ [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKFinder%20package%20for%20Laravel%20&url=https://github.com/ckfinder/ckfinder-laravel-package)
+# CKFinder 3 Package for Laravel 10+ [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20CKFinder%20package%20for%20Laravel%20&url=https://github.com/ckfinder/ckfinder-laravel-package)
 
-[![Laravel version](https://img.shields.io/badge/Laravel-9+-green.svg)]()
+[![Laravel version](https://img.shields.io/badge/Laravel-10+-green.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Packagist](https://img.shields.io/packagist/v/ckfinder/ckfinder-laravel-package.svg)](https://packagist.org/packages/ckfinder/ckfinder-laravel-package)
 [![Packagist](https://img.shields.io/packagist/dt/ckfinder/ckfinder-laravel-package.svg)](https://packagist.org/packages/ckfinder/ckfinder-laravel-package)
 [![Join newsletter](https://img.shields.io/badge/join-newsletter-00cc99.svg)](http://eepurl.com/c3zRPr)
 [![Follow twitter](https://img.shields.io/badge/follow-twitter-00cc99.svg)](https://twitter.com/ckeditor)
 
-This repository contains the CKFinder 3 Package for Laravel 9+.
+This repository contains the CKFinder 3 Package for Laravel 10+.
 
 <h3 align="center"><a href="https://ckeditor.com/docs/ckfinder/demo/ckfinder3/samples/widget.html"><img src="https://user-images.githubusercontent.com/803299/42693315-18717aae-86af-11e8-863a-74070edb3912.png"></a></h3>
 
@@ -58,6 +58,7 @@ This repository contains the CKFinder 3 Package for Laravel 9+.
     ```
 
     **NOTE:** Since usually setting permissions to `0777` is insecure, it is advisable to change the group ownership of the directory to the same user as Apache and add group write permissions instead. Please contact your system administrator in case of any doubts.
+
 
 5. CKFinder by default uses a CSRF protection mechanism based on [double submit cookies](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie). On some configurations it may be required to configure Laravel not to encrypt the cookie set by CKFinder.
 
