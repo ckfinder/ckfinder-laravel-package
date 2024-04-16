@@ -45,7 +45,7 @@ class CKFinderController extends Controller
         // If debug mode is enabled then do not catch exceptions and pass them directly to Laravel.
         $enableDebugMode = config('ckfinder.debug');
 
-        return $connector->handle($request, HttpKernelInterface::MASTER_REQUEST, !$enableDebugMode);
+        return $connector->handle($request, HttpKernelInterface::MAIN_REQUEST, !$enableDebugMode);
     }
 
     /**
