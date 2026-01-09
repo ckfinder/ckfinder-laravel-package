@@ -60,9 +60,7 @@ This repository contains the CKFinder 3 Package for Laravel 9+. If you are looki
     **NOTE:** Since usually setting permissions to `0777` is insecure, it is advisable to change the group ownership of the directory to the same user as Apache and add group write permissions instead. Please contact your system administrator in case of any doubts.
 
 
-5. CKFinder by default uses a CSRF protection mechanism based on [double submit cookies](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie). On some configurations it may be required to configure Laravel not to encrypt the cookie set by CKFinder.
-
-    **To do that:**
+5. CKFinder by default uses a CSRF protection mechanism based on [double submit cookies](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie). On some configurations it may be required to configure Laravel not to encrypt the cookie set by CKFinder. To do that:
 
     **For Laravel <= 10:**
 
