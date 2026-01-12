@@ -60,33 +60,34 @@ This repository contains the CKFinder 3 Package for Laravel 9+. If you are looki
     **NOTE:** Since usually setting permissions to `0777` is insecure, it is advisable to change the group ownership of the directory to the same user as Apache and add group write permissions instead. Please contact your system administrator in case of any doubts.
 
 
-5. CKFinder by default uses a CSRF protection mechanism based on [double submit cookies](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie). On some configurations it may be required to configure Laravel not to encrypt the cookie set by CKFinder.
+5. CKFinder by default uses a CSRF protection mechanism based on [double submit cookies](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie). On some configurations it may be required to configure Laravel not to encrypt the cookie set by CKFinder. To do that:
 
-   To do that, please add the cookie name `ckCsrfToken` to the `$except` property of `EncryptCookies` middleware:
+    **For Laravel <= 10:**
 
-   ```php
-   // app/Http/Middleware/EncryptCookies.php
+    Please add the cookie name `ckCsrfToken` to the `$except` property of `EncryptCookies` middleware:
 
-   namespace App\Http\Middleware;
+    ```php
+    // app/Http/Middleware/EncryptCookies.php
 
-   use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+    namespace App\Http\Middleware;
 
-   class EncryptCookies extends Middleware
-   {
-       /**
-        * The names of the cookies that should not be encrypted.
-        *
-        * @var array
-        */
-       protected $except = [
-           'ckCsrfToken',
-           // ...
-       ];
-   }
-   ```
+    use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 
-   You should also disable Laravel's CSRF protection for CKFinder's path, as CKFinder uses its own CSRF protection mechanism. This can be done by adding `ckfinder/*` pattern to the `$except` property of `VerifyCsrfToken` middleware:
-   (app/Http/Middleware/VerifyCsrfToken.php)
+    class EncryptCookies extends Middleware
+    {
+        /**
+         * The names of the cookies that should not be encrypted.
+         *
+         * @var array
+         */
+        protected $except = [
+            'ckCsrfToken',
+            // ...
+        ];
+    }
+    ```
+
+    You should also disable Laravel's CSRF protection for CKFinder's path, as CKFinder uses its own CSRF protection mechanism. This can be done by adding `ckfinder/*` pattern to the `$except` property of `VerifyCsrfToken` middleware:
 
     ```php
     // app/Http/Middleware/VerifyCsrfToken.php
@@ -107,6 +108,52 @@ This repository contains the CKFinder 3 Package for Laravel 9+. If you are looki
             // ...
         ];
     }
+    ```
+
+    **For Laravel >= 11:**
+
+    Two calls must be added, which introduce exceptions in CSRF protection mechanism.
+
+    First one configure Laravel not to encrypt the cookie set by CKFinder:
+
+    ```php
+    $middleware->encryptCookies(except: [
+        'ckCsrfToken',
+    ]);
+    ```
+
+    Second one disables Laravel's CSRF protection for CKFinder's path:
+
+    ```php
+    $middleware->validateCsrfTokens(except: [
+        'ckfinder/*'
+    ]);
+    ```
+
+    File `bootstrap/app.php` should look like this:
+
+    ```php
+    // bootstrap/app.php
+    use Illuminate\Foundation\Application;
+    use Illuminate\Foundation\Configuration\Exceptions;
+    use Illuminate\Foundation\Configuration\Middleware;
+
+    return Application::configure(basePath: dirname(__DIR__))
+        ->withRouting(
+            web: __DIR__.'/../routes/web.php',
+            commands: __DIR__.'/../routes/console.php',
+            health: '/up',
+        )
+        ->withMiddleware(function (Middleware $middleware): void {
+            $middleware->validateCsrfTokens(except: [
+                'ckfinder/*'
+            ]);
+            $middleware->encryptCookies(except: [
+                'ckCsrfToken',
+            ]);
+        })
+        ->withExceptions(function (Exceptions $exceptions): void {
+        })->create();
     ```
 
 At this point you should see the connector JSON response after navigating to the `<APP BASE URL>/ckfinder/connector?command=Init` address.
